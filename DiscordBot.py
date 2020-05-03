@@ -26,6 +26,7 @@ async def on_ready(): # When the bot is ready to be used output to console
 async def changeprefix(ctx, args):
     prefixes[str(ctx.guild.id)] = args
     WritePrefixJson(prefixes)
+    await ctx.channel.send("Prefix changed to \"{p}\" very cool!".format(p=args))
 
 @bot.command(name="code", help="This is just a link for the bot's code")
 async def code(ctx):

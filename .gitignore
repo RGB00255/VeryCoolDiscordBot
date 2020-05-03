@@ -1,0 +1,13 @@
+# Sensative info
+token.txt
+reddit/config.json
+
+# .vscode config files
+.vscode/
+
+# images
+reddit/images
+
+# general
+__pycache__/
+reddit/__pycache__/

@@ -1,4 +1,4 @@
-# Returns the url of a randomly picked post from selected subreddit, thanks stackoverflow for praw!!!
+# GetMeme.py returns the url of a randomly picked post from selected subreddit, thanks stackoverflow for praw!!!
 import praw, random, json
 
 with open("reddit/config.json") as file:

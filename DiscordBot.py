@@ -1,5 +1,5 @@
 # My first discord bot in python
-# Commands: code, coomer, johnfreeman, iq, meme
+# Commands: changeprefix, code, coomer, johnfreeman, iq, meme
 __author__ = "Ryan Bergeron"
 
 from discord.ext import commands

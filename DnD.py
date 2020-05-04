@@ -1,7 +1,9 @@
 # DnD.py will handle anything DnD related
+# Contains commands: d4, d6, d8, d10, d20, d100, roll
 import random, discord
 from discord.ext import commands
 
+# DnD Commands
 class Commands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -29,6 +31,10 @@ class Commands(commands.Cog):
     @commands.command(name="d100", help="Roll a d100")
     async def d100(self, ctx):
         await ctx.channel.send("{c.author} rolled a {r}".format(c=ctx,r=Roll(100)))
+
+    @commands.command(name="roll", help="Roll XdY")
+    async def roll(self, ctx, args):
+        await ctx.channel.send("Not implemented yet. Here's ur arg tho: {a}".format(a=args))
 
 # Roll just generates a random number given the range
 def Roll(die):

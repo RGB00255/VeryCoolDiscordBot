@@ -1,4 +1,6 @@
+#!/usr/bin/env python3
 # My first discord bot in python
+
 # Commands: changeprefix, code, coomer, 
 #   d4, d6, d8, d10, d20, d100,
 #   johnfreeman, iq, meme

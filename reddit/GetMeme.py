@@ -17,5 +17,5 @@ def GetNewMeme(subreddit):
 
 # Gets random subreddit from file
 def GetRandomSubreddit():
-    subreddits = [line.strip() for line in open("data/subreddits.txt")]
+    subreddits = [line.strip() for line in open("reddit/subreddits.txt")]
     return random.choice(subreddits)

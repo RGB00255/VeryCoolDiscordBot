@@ -4,7 +4,7 @@ __author__ = "Ryan Bergeron"
 
 from discord.ext import commands
 from PrefixHandler import prefixes
-import discord, DnD, Fun, json, PrefixHandler, random
+import discord, DnD, Fun, PrefixHandler
 
 # Open and read in prefixes.json
 #prefixes = PrefixHandler.prefixes

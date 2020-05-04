@@ -1,6 +1,6 @@
 # PrefixHandler.py will handle everything related to prefixes
 # Contains command changeprefix
-import json, discord
+import discord, json
 from discord.ext import commands
 
 # Commands class for changeprefix

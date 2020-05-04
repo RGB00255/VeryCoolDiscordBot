@@ -1,11 +1,13 @@
 # My first discord bot in python
-# Commands: changeprefix, code, coomer, johnfreeman, iq, meme
+# Commands: changeprefix, code, coomer, 
+#   d4, d6, d8, d10, d20, d100,
+#   johnfreeman, iq, meme
 __author__ = "Ryan Bergeron"
 
 from discord.ext import commands
 from reddit.GetMeme import GetNewMeme, GetRandomSubreddit
 from PrefixHandler import WritePrefixJson
-import discord, json, PrefixHandler, random
+import discord, json, PrefixHandler, random, DnD
 
 # Open and read in prefixes.json
 prefixes = PrefixHandler.LoadPrefixes()
@@ -37,6 +39,30 @@ async def coomer(ctx):
     coomerQuotes = [line.strip() for line in open("data/CoomerQuotes.txt")]
     await ctx.channel.send(random.choice(coomerQuotes) + " (Very cool)")
 
+@bot.command(name="d4", help="Roll a d4")
+async def d4(ctx):
+    await ctx.channel.send("{c.author} rolled a {r}".format(c=ctx,r=DnD.Roll(4)))
+
+@bot.command(name="d6", help="Roll a d6")
+async def d6(ctx):
+    await ctx.channel.send("{c.author} rolled a {r}".format(c=ctx,r=DnD.Roll(6)))
+
+@bot.command(name="d8", help="Roll a d8")
+async def d8(ctx):
+    await ctx.channel.send("{c.author} rolled a {r}".format(c=ctx,r=DnD.Roll(8)))
+
+@bot.command(name="d10", help="Roll a d10")
+async def d10(ctx):
+    await ctx.channel.send("{c.author} rolled a {r}".format(c=ctx,r=DnD.Roll(10)))
+
+@bot.command(name="d20", help="Roll a d20")
+async def d20(ctx):
+    await ctx.channel.send("{c.author} rolled a {r}".format(c=ctx,r=DnD.Roll(20)))
+
+@bot.command(name="d100", help="Roll a d100")
+async def d100(ctx):
+    await ctx.channel.send("{c.author} rolled a {r}".format(c=ctx,r=DnD.Roll(100)))
+
 @bot.command(name="johnfreeman", help="You know what to do with this one")
 async def johnfreeman(ctx):
     HLFLCQuotes = [line.strip() for line in open("data/HLFLC.txt")]
@@ -44,7 +70,7 @@ async def johnfreeman(ctx):
 
 @bot.command(name="iq", help="Determine your iq")
 async def iq(ctx):
-    await ctx.channel.send("{a.author}, your iq is: {i}, very cool!".format(a=ctx, i=str(random.randrange(-1, 229))))
+    await ctx.channel.send("{c.author}, your iq is: {i}, very cool!".format(c=ctx, i=str(random.randrange(-1, 229))))
 
 @bot.command(name="meme", help="Gets a random meme from a reddit meme subreddit")
 async def meme(ctx):

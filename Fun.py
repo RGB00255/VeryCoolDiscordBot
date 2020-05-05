@@ -2,7 +2,7 @@
 # Contains commands: code, coomer, johnfreeman, iq, meme
 import discord, random
 from discord.ext import commands
-from reddit.GetMeme import GetNewMeme, GetRandomSubreddit
+from data.reddit.GetMeme import GetNewMeme, GetRandomSubreddit
 
 # Fun commands
 class Commands(commands.Cog):

@@ -1,7 +1,10 @@
 # GetMeme.py returns the url of a randomly picked post from selected subreddit, thanks stackoverflow for praw!!!
 import praw, random, json
 
-with open("reddit/config.json") as file:
+cfgLocation = "data/reddit/config.json"
+srLocation = "data/reddit/subreddits.txt"
+
+with open(cfgLocation) as file:
     cfg = json.load(file)
     reddit = praw.Reddit(client_id=cfg["client_id"],
                      client_secret=cfg["secret_id"],
@@ -17,5 +20,5 @@ def GetNewMeme(subreddit):
 
 # Gets random subreddit from file
 def GetRandomSubreddit():
-    subreddits = [line.strip() for line in open("reddit/subreddits.txt")]
+    subreddits = [line.strip() for line in open(srLocation)]
     return random.choice(subreddits)

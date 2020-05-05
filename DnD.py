@@ -16,6 +16,7 @@ class Commands(commands.Cog):
 def Roll(die):
     return random.randrange(1, die + 1)
 
+# Does a roll given a value like 3d4
 def dRoll(roll):
     rollList = roll.split("d")
     returnString = ""

@@ -6,10 +6,6 @@ from discord.ext import commands
 from Prefix import prefixes
 import discord, DnD, Fun, Prefix
 
-# Open and read in prefixes.json
-#prefixes = Prefix.prefixes
-default_prefix = "!"
-
 # Function will determine server's prefix
 def prefix(bot, message):
     return Prefix.GetPrefix(bot, message, prefixes)
@@ -32,4 +28,3 @@ try:
 except:
     print("token.txt does not exist!")
     exit()
-

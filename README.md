@@ -6,6 +6,11 @@ This is my first bot for Discord, it is a WIP as I learn more about making bots.
 discord.py documentation: https://discordpy.readthedocs.io/en/latest/index.html
 
 # Features:
+   
+  DnD:
+  
+    roll <XdY> - Rolls a dice of Y sides X times (i.e. !roll 3d4 "<user>, here's your roll: 4 + 3 + 2 = 9")
+    
   Fun:
   
     code - Displays a link to this github repo
@@ -17,7 +22,3 @@ discord.py documentation: https://discordpy.readthedocs.io/en/latest/index.html
   Utility:
   
     changeprefix - Changes the prefix for your server
-    
-  DnD:
-  
-    roll <XdY> - Rolls a dice of Y sides X times (i.e. !roll 3d4 "<user>, here's your roll: 4 + 3 + 2 = 9")

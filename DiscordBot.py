@@ -3,22 +3,22 @@
 __author__ = "Ryan Bergeron"
 
 from discord.ext import commands
-from PrefixHandler import prefixes
-import discord, DnD, Fun, PrefixHandler
+from Prefix import prefixes
+import discord, DnD, Fun, Prefix
 
 # Open and read in prefixes.json
-#prefixes = PrefixHandler.prefixes
+#prefixes = Prefix.prefixes
 default_prefix = "!"
 
 # Function will determine server's prefix
 def prefix(bot, message):
-    return PrefixHandler.GetPrefix(bot, message, prefixes)
+    return Prefix.GetPrefix(bot, message, prefixes)
 
 # Set bot and commands
 bot = commands.Bot(command_prefix=prefix)
 bot.add_cog(DnD.Commands(bot))
 bot.add_cog(Fun.Commands(bot))
-bot.add_cog(PrefixHandler.Commands(bot))
+bot.add_cog(Prefix.Commands(bot))
 
 # When the bot is running, output to console
 @bot.event

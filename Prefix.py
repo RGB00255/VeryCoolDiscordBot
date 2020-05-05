@@ -1,5 +1,19 @@
-# PrefixHandler.py will handle everything related to prefix.json
-import json
+# PrefixHandler.py will handle everything related to prefixes
+# Contains command changeprefix
+import discord, json
+from discord.ext import commands
+
+# Commands class for changeprefix
+class Commands(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+
+    @commands.command(name="changeprefix", help="Changes your server's prefix")
+    @commands.has_permissions(administrator=True)
+    async def changeprefix(self, ctx, args):
+        prefixes[str(ctx.guild.id)] = args
+        WritePrefixJson(prefixes)
+        await ctx.channel.send("Prefix changed to \"{p}\" very cool!".format(p=args))
 
 # Loads all prefixes from prefixes.json
 def LoadPrefixes():
@@ -23,3 +37,5 @@ def GetPrefix(bot, message, prefixes):
 def WritePrefixJson(prefixes):
     with open("data/prefixes.json", 'w') as f:
         json.dump(prefixes, f)
+
+prefixes = LoadPrefixes()

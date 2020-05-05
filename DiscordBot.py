@@ -16,9 +16,9 @@ def prefix(bot, message):
 
 # Set bot and commands
 bot = commands.Bot(command_prefix=prefix)
-bot.add_cog(DnD.Commands(bot))
-bot.add_cog(Fun.Commands(bot))
-bot.add_cog(Prefix.Commands(bot))
+bot.add_cog(DnD.DnD(bot))
+bot.add_cog(Fun.Fun(bot))
+bot.add_cog(Prefix.Utility(bot))
 
 # When the bot is running, output to console
 @bot.event

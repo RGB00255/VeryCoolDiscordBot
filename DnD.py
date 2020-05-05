@@ -4,7 +4,7 @@ import discord, random, re
 from discord.ext import commands
 
 # DnD Commands
-class Commands(commands.Cog):
+class DnD(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 

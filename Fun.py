@@ -5,7 +5,7 @@ from discord.ext import commands
 from data.reddit.GetMeme import GetNewMeme, GetRandomSubreddit
 
 # Fun commands
-class Commands(commands.Cog):
+class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     

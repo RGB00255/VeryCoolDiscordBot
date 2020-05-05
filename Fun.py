@@ -25,7 +25,7 @@ class Commands(commands.Cog):
 
     @commands.command(name="iq", help="Determine your iq")
     async def iq(self, ctx):
-        await ctx.channel.send("{c.author}, your iq is: {i}, very cool!".format(c=ctx, i=str(random.randrange(-1, 229))))
+        await ctx.channel.send("{c.message.author.mention}, your iq is: {i}, very cool!".format(c=ctx, i=str(random.randrange(-1, 229))))
 
     @commands.command(name="meme", help="Gets a random meme from a reddit meme subreddit")
     async def meme(self, ctx):

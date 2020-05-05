@@ -10,7 +10,7 @@ class Commands(commands.Cog):
 
     @commands.command(name="roll", help="Roll XdY")
     async def roll(self, ctx, args):
-        await ctx.channel.send("{c.author}, here's your roll: {r}".format(c=ctx, r=dRoll(args)))
+        await ctx.channel.send("{c.message.author.mention}, here's your roll: {r}".format(c=ctx, r=dRoll(args)))
 
 # Roll just generates a random number given the range
 def Roll(die):

@@ -20,3 +20,7 @@ class Sound(commands.Cog):
     async def play(self, ctx, args):
         source = discord.PCMVolumeTransformer(discord.FFmpegPCMAudio("data/sounds/{}.mp3".format(args)))
         ctx.voice_client.play(source)
+
+    @commands.command(name="stahp", help="Stops and disconnects the bot from voice")
+    async def stahp(self, ctx):
+        await ctx.voice_client.disconnect()

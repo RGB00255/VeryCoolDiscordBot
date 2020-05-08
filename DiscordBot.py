@@ -22,8 +22,6 @@ bot.add_cog(sound.Sound(bot))
 async def on_ready():
     print("Logged on as {0.user}!".format(bot))
 
-
-
 # Attempt to read in the token from text file
 try:
     f = open("token.txt", 'r')

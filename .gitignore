@@ -1,12 +1,12 @@
 # Sensative info
 token.txt
-reddit/config.json
+data/reddit/config.json
 
 # .vscode config files
 .vscode/
 
 # images
-reddit/images
+data/reddit/images
 
 # sound
 data/sounds

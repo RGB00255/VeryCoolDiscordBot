@@ -8,6 +8,9 @@ reddit/config.json
 # images
 reddit/images
 
+# sound
+data/sounds
+
 # general
 __pycache__/
 reddit/__pycache__/

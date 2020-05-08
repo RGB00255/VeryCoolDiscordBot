@@ -1,4 +1,4 @@
-# DnD.py will handle anything DnD related
+# dnd.py will handle anything DnD related
 # Contains commands: d4, d6, d8, d10, d20, d100, roll
 import discord, random, re
 from discord.ext import commands

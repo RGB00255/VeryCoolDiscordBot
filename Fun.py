@@ -1,8 +1,8 @@
-# Fun.py handles everything related to fun stuff
+# fun.py handles everything related to fun stuff
 # Contains commands: code, coomer, johnfreeman, iq, meme
 import discord, random
 from discord.ext import commands
-from data.reddit.GetMeme import GetNewMeme, GetRandomSubreddit
+from data.reddit.getmeme import GetNewMeme, GetRandomSubreddit
 
 # Fun commands
 class Fun(commands.Cog):

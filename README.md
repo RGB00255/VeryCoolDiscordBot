@@ -9,7 +9,7 @@ discord.py documentation: https://discordpy.readthedocs.io/en/latest/index.html
    
   DnD:
   
-    roll <XdY> - Rolls a dice of Y sides X times (i.e. !roll 3d4 "<user>, here's your roll: 4 + 3 + 2 = 9")
+    roll <XdY[+Z]> - Rolls a dice of Y sides X times (i.e. !roll 3d4 "<user>, here's your roll: 4 + 3 + 2 = 9")
     
   Fun:
   
@@ -19,6 +19,13 @@ discord.py documentation: https://discordpy.readthedocs.io/en/latest/index.html
     iq - Gives you your iq (generates a random number from -1 - 228)
     meme - Displays a random meme from a random subreddit defined in subreddits.txt
     
+   Sound:
+ 
+    join - Get bot to join your voice channel
+    listsounds - Lists all available sounds
+    play - Plays a sound clip from the sounds folder
+    stahp - Stops and disconnects the bot from voice
+  
   Utility:
   
     changeprefix - Changes the prefix for your server

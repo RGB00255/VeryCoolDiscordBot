@@ -13,4 +13,4 @@ data/sounds
 
 # general
 __pycache__/
-reddit/__pycache__/
+data/reddit/__pycache__/

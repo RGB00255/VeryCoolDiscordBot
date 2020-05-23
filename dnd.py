@@ -37,7 +37,7 @@ def dRoll(roll):
                 returnString += str(tempRoll) + " + "
     if len(rollList) == 3: # If + was in string
         total += int(rollList[2])
-        return returnString + " + {s} = {t}, very cool!".format(s=rollList[2], t=total)
+        returnString += " + {s} = {t}".format(s=rollList[2], t=total)
     if total == 1: # New return string if total sucks
         return returnString + ", very cool?"
     if total >= int(rollList[1]): # If rolled highest possible

@@ -24,7 +24,7 @@ discord.py documentation: https://discordpy.readthedocs.io/en/latest/index.html
     join - Get bot to join your voice channel
     listsounds - Lists all available sounds
     play - Plays a sound clip from the sounds folder
-    stahp - Stops and disconnects the bot from voice
+    stop - Stops and disconnects the bot from voice
   
   Utility:
   

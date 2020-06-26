@@ -2,7 +2,7 @@
 # Contains commands: code, coomer, johnfreeman, iq, meme
 import discord, random
 from discord.ext import commands
-from data.reddit.meme import GetNewMeme, GetRandomSubreddit
+from data.reddit.meme import GetNewMeme, GetRandomSubreddit, LoadSubreddits
 
 # Fun commands
 class Fun(commands.Cog):
@@ -22,6 +22,10 @@ class Fun(commands.Cog):
     async def johnfreeman(self, ctx):
         HLFLCQuotes = [line.strip() for line in open("data/HLFLC.txt")]
         await ctx.channel.send(random.choice(HLFLCQuotes) + " (Very cool)")
+
+    @commands.command(name="listsubreddits", help="Lists subreddits that can be chosen with !meme")
+    async def listsubreddits(self, ctx):
+        await ctx.channel.send("Here's a list of all the very cool subreddits I choose from:\n```{a}```".format(a=", ".join(LoadSubreddits())))
 
     @commands.command(name="iq", help="Determine your iq")
     async def iq(self, ctx):

@@ -18,7 +18,7 @@ class Sound(commands.Cog):
 
     @commands.command(name="listsounds", help="Lists all available sounds")
     async def listsounds(self, ctx):
-        await ctx.channel.send("Here's all of my very cool sounds I can play:\n```{a}```".format(a=", ".join(ListSoundFiles())))
+        await ctx.channel.send("Here's all of my very cool sounds I can play:\n```{a}```".format(a=", ".join(GetSoundFiles())))
 
     @commands.command(name="play", help="Plays a sound clip from the sounds folder")
     async def play(self, ctx, args):
@@ -29,7 +29,7 @@ class Sound(commands.Cog):
     async def stop(self, ctx):
         await ctx.voice_client.disconnect()
 
-def ListSoundFiles():
+def GetSoundFiles():
     file_list=os.listdir("data/sounds")
     fixed_list=[x.split('.')[0] for x in file_list]
     return fixed_list

@@ -4,7 +4,7 @@ __author__ = "Ryan Bergeron"
 
 from discord.ext import commands
 from prefix import prefixes
-import discord, dnd, fun, prefix, sound
+import discord, dnd, fun, prefix, sound, utility
 
 # Function will determine server's prefix
 def GetPrefix(bot, message):
@@ -16,6 +16,7 @@ bot.add_cog(dnd.DnD(bot))
 bot.add_cog(fun.Fun(bot))
 bot.add_cog(prefix.Utility(bot))
 bot.add_cog(sound.Sound(bot))
+bot.add_cog(utility.Utility(bot))
 
 # When the bot is running, output to console
 @bot.event

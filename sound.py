@@ -30,6 +30,6 @@ class Sound(commands.Cog):
         await ctx.voice_client.disconnect()
 
 def GetSoundFiles():
-    file_list=os.listdir("data/sounds")
-    fixed_list=[x.split('.')[0] for x in file_list]
+    file_list = os.listdir("data/sounds")
+    fixed_list = [x.split('.')[0] for x in file_list]
     return fixed_list

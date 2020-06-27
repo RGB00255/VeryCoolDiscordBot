@@ -1,9 +1,9 @@
 # getmeme.py returns the url of a randomly picked post from selected subreddit, thanks stackoverflow for praw!!!
-import praw, random, json
+import json, os, praw, random
 from prawcore import NotFound
 
 cfgLocation = "data/reddit/config.json"
-srLocation = "data/reddit/subreddits.txt"
+srLocation = "data/reddit/subreddits/"
 
 # Open and read in super secret api info so I can actually access reddit
 with open(cfgLocation) as file:
@@ -12,14 +12,13 @@ with open(cfgLocation) as file:
                      client_secret=cfg["secret_id"],
                      user_agent=cfg["user_agent"])
 
-# Adds subreddit to subreddits.txt
-# In the future, add support for server specific setups
-def AddSubreddit(subreddit):
+# Adds subreddit to server specific subreddits text file
+def AddSubreddit(subreddit, id):
     if SubExists(subreddit):
-        subreddits = LoadSubreddits()
+        subreddits = LoadSubreddits(id)
         if subreddit not in subreddits:
             subreddits.append(subreddit)
-            SaveSubreddits(subreddits)
+            SaveSubreddits(subreddits, id)
             return True
     return False
 
@@ -32,26 +31,32 @@ def GetNewMeme(subreddit):
     return submission
 
 # Gets random subreddit from file
-def GetRandomSubreddit():
-    subreddits = LoadSubreddits()
+def GetRandomSubreddit(id):
+    subreddits = LoadSubreddits(id)
     return random.choice(subreddits)
 
 # Returns a list of subreddits in subreddits.txt
-def LoadSubreddits():
-    return [line.strip() for line in open(srLocation)]
+def LoadSubreddits(id):
+    fileLocation = srLocation + id + ".txt"
+    if os.path.isfile(fileLocation):
+        return [line.strip() for line in open(fileLocation)]
+    else: # The file is going to start out with dankmemes
+        outFile = open(fileLocation, 'w')
+        outFile.write("dankmemes")
+        outFile.close()
+        return [line.strip() for line in open(fileLocation)]
 
 # Saves list of subreddits to subreddits.txt
-def SaveSubreddits(subreddits):
-    with open(srLocation, 'w') as outFile:
+def SaveSubreddits(subreddits, id):
+    with open(srLocation + id + ".txt", 'w') as outFile:
         outFile.write('\n'.join(sorted(subreddits)))
 
-# Removes subreddit from subreddits.txt
-# In the future, add support for server specific setups
-def RemoveSubreddit(subreddit):
-    subreddits = LoadSubreddits()
+# Removes subreddit from server specific subreddit text file
+def RemoveSubreddit(subreddit, id):
+    subreddits = LoadSubreddits(id)
     if subreddit in subreddits:
         subreddits.remove(subreddit)
-        SaveSubreddits(subreddits)
+        SaveSubreddits(subreddits, id)
         return True
     return False
 

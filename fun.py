@@ -25,7 +25,7 @@ class Fun(commands.Cog):
 
     @commands.command(name="listsubreddits", help="Lists subreddits that can be chosen with !meme")
     async def listsubreddits(self, ctx):
-        await ctx.channel.send("Here's a list of all the very cool subreddits I choose from:\n```{a}```".format(a=", ".join(LoadSubreddits())))
+        await ctx.channel.send("Here's a list of all the very cool subreddits I choose from:\n```{a}```".format(a=", ".join(LoadSubreddits(str(ctx.guild.id)))))
 
     @commands.command(name="iq", help="Determine your iq")
     async def iq(self, ctx):
@@ -33,6 +33,6 @@ class Fun(commands.Cog):
 
     @commands.command(name="meme", help="Gets a random meme from a reddit meme subreddit")
     async def meme(self, ctx):
-        rdmSR = GetRandomSubreddit()
+        rdmSR = GetRandomSubreddit(str(ctx.guild.id))
         meme = GetNewMeme(rdmSR)
         await ctx.channel.send("\"{a}\" \n{b} from r/{c}, very cool!".format(a=meme.title, b=meme.url, c=rdmSR))

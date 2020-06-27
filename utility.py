@@ -11,7 +11,7 @@ class Utility(commands.Cog):
     @commands.command(name="addsubreddit", help="Adds subreddit to list of subreddits")
     @commands.has_permissions(administrator=True)
     async def addsubreddit(self, ctx, args):
-        if AddSubreddit(args):
+        if AddSubreddit(args, str(ctx.guild.id)):
             await ctx.channel.send("Subreddit added successfully")
         else:
             await ctx.channel.send("Subreddit not added")
@@ -19,7 +19,7 @@ class Utility(commands.Cog):
     @commands.command(name="removesubreddit", help="Removes subreddit from list of subreddits")
     @commands.has_permissions(administrator=True)
     async def removesubreddit(self, ctx, args):
-        if RemoveSubreddit(args):
+        if RemoveSubreddit(args, str(ctx.guild.id)):
             await ctx.channel.send("Subreddit removed successfully")
         else:
             await ctx.channel.send("Subreddit doesn't exist/isn't in subreddits.txt")

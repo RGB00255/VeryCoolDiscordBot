@@ -35,7 +35,7 @@ def GetRandomSubreddit(id):
     subreddits = LoadSubreddits(id)
     return random.choice(subreddits)
 
-# Returns a list of subreddits in subreddits.txt
+# Returns a list of subreddits in server's subreddits text file
 def LoadSubreddits(id):
     fileLocation = srLocation + id + ".txt"
     if os.path.isfile(fileLocation):
@@ -46,7 +46,7 @@ def LoadSubreddits(id):
         outFile.close()
         return [line.strip() for line in open(fileLocation)]
 
-# Saves list of subreddits to subreddits.txt
+# Saves list of subreddits to server's subreddits text file
 def SaveSubreddits(subreddits, id):
     with open(srLocation + id + ".txt", 'w') as outFile:
         outFile.write('\n'.join(sorted(subreddits)))

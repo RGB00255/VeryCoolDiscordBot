@@ -13,7 +13,11 @@ discord.py documentation: https://discordpy.readthedocs.io/en/latest/index.html
     ffmpeg
 
 # Features:
-   
+  
+  So far, this bot's main uses are: doing a basic roll in DnD, posting random memes from random, server specified subreddits, and playing sounds through voice channels (not really a defining feature, but it's there so w/e). 
+
+  Below are the commands this bot can do.
+
   DnD:
   
     roll <XdY[+Z]> - Rolls a dice of Y sides X times (i.e. !roll 3d4 "<user>, here's your roll: 4 + 3 + 2 = 9")

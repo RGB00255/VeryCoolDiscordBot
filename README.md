@@ -29,7 +29,7 @@ discord.py documentation: https://discordpy.readthedocs.io/en/latest/index.html
     johnfreeman - Displays a random line from the "Halflife: Fulllife Consequences" fan fiction
     listsubreddits - Lists subreddits that can be chosen with !meme
     iq - Gives you your iq (generates a random number from -1 - 228)
-    meme - Displays a random meme from a random subreddit defined in subreddits.txt
+    meme - Displays a random meme from a random subreddit defined in subreddits.txt. It can also do specific subreddits "!meme pics"
     
    Sound:
  

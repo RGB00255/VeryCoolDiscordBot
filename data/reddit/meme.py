@@ -27,7 +27,7 @@ def GetNewMeme(subreddit):
     memes_submissions = reddit.subreddit(subreddit).hot()
     post_to_pick = random.randint(1, 50)
     for _ in range(0, post_to_pick):
-        submission = next(x for x in memes_submissions if not x.stickied and not x.is_video and not x.is_self)
+        submission = next(x for x in memes_submissions if x.is_reddit_media_domain and x.domain == "i.redd.it")
     return submission
 
 # Gets random subreddit from file
@@ -62,9 +62,8 @@ def RemoveSubreddit(subreddit, id):
 
 # Yoinked this from reddit, u/gavin19, note: thank the kind stranger at some point
 def SubExists(subreddit):
-    exists = True
     try:
         reddit.subreddits.search_by_name(subreddit, exact=True)
     except NotFound:
-        exists = False
-    return exists
+        return False
+    return True

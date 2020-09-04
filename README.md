@@ -6,9 +6,7 @@ This is my first bot for Discord, it is a WIP as I learn more about making bots.
 discord.py documentation: https://discordpy.readthedocs.io/en/latest/index.html
 
 # Requirements:
-  For the meme command to work you need to have a Reddit account. Create an app and put your "client_id", "secret_id", and "user_agent" in data/reddit/config.json.
-
-  A Discord account.
+  For the meme command to work you need to have a Reddit account. Create an app and put your "client_id", "secret_id", and "user_agent" in data/reddit/config.json. A Discord account is also required of course.
   
   Run "pip3 install -r requirements.txt" to install all the requirements installable from pip3
 

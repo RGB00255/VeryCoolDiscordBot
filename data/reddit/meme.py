@@ -4,6 +4,7 @@ from prawcore import NotFound
 
 cfgLocation = "data/reddit/config.json"
 srLocation = "data/reddit/subreddits/"
+bLocation = "data/reddit/subreddits/blacklist"
 
 # Open and read in super secret api info so I can actually access reddit
 with open(cfgLocation) as file:
@@ -46,11 +47,6 @@ def LoadSubreddits(id):
         outFile.close()
         return [line.strip() for line in open(fileLocation)]
 
-# Saves list of subreddits to server's subreddits text file
-def SaveSubreddits(subreddits, id):
-    with open(srLocation + id + ".txt", 'w') as outFile:
-        outFile.write('\n'.join(sorted(subreddits)))
-
 # Removes subreddit from server specific subreddit text file
 def RemoveSubreddit(subreddit, id):
     subreddits = LoadSubreddits(id)
@@ -59,6 +55,11 @@ def RemoveSubreddit(subreddit, id):
         SaveSubreddits(subreddits, id)
         return True
     return False
+
+# Saves list of subreddits to server's subreddits text file
+def SaveSubreddits(subreddits, id):
+    with open(srLocation + id + ".txt", 'w') as outFile:
+        outFile.write('\n'.join(sorted(subreddits)))
 
 # Yoinked this from reddit, u/gavin19, note: thank the kind stranger at some point
 def SubExists(subreddit):

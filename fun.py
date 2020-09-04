@@ -2,7 +2,7 @@
 # Contains commands: code, coomer, johnfreeman, iq, meme
 import discord, random
 from discord.ext import commands
-from data.reddit.meme import GetNewMeme, GetRandomSubreddit, LoadSubreddits, SubExists
+from data.reddit.meme import GetNewMeme, GetRandomSubreddit, LoadSubreddits, SubAdded
 
 # Fun commands
 class Fun(commands.Cog):
@@ -31,14 +31,14 @@ class Fun(commands.Cog):
     async def iq(self, ctx):
         await ctx.channel.send("{c.message.author.mention}, your iq is: {i}, very cool!".format(c=ctx, i=str(random.randrange(-1, 229))))
 
-    @commands.command(name="meme", help="Gets a random meme from a reddit meme subreddit unless specified")
+    @commands.command(name="meme", help="Gets a random meme from a subreddit unless specified")
     async def meme(self, ctx, args = None):
         if args is None: # Check if nothing was inputted
             rdmSR = GetRandomSubreddit(str(ctx.guild.id))
             meme = GetNewMeme(rdmSR)
             await ctx.channel.send("\"{a}\" \n{b} from r/{c}, very cool!".format(a=meme.title, b=meme.url, c=rdmSR))
         else:
-            if SubExists(args):
+            if SubAdded(args, str(ctx.guild.id)):
                 meme = GetNewMeme(args)
                 await ctx.channel.send("\"{a}\" \n{b} from r/{c}, very cool!".format(a=meme.title, b=meme.url, c=args))
             else:

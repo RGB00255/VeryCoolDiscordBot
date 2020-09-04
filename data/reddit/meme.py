@@ -4,7 +4,6 @@ from prawcore import NotFound
 
 cfgLocation = "data/reddit/config.json"
 srLocation = "data/reddit/subreddits/"
-bLocation = "data/reddit/subreddits/blacklist"
 
 # Open and read in super secret api info so I can actually access reddit
 with open(cfgLocation) as file:
@@ -20,6 +19,14 @@ def AddSubreddit(subreddit, id):
         if subreddit not in subreddits:
             subreddits.append(subreddit)
             SaveSubreddits(subreddits, id)
+            return True
+    return False
+
+# Used for "!meme <subreddit>"
+def SubAdded(subreddit, id):
+    if SubExists(subreddit):
+        subreddits = LoadSubreddits(id)
+        if subreddit in subreddits:
             return True
     return False
 

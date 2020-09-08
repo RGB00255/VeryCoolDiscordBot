@@ -22,6 +22,7 @@ bot.add_cog(utility.Utility(bot))
 @bot.event
 async def on_ready():
     print("Logged on as {0.user}!".format(bot))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="you sleep, very cool!"))
 
 # Attempt to read in the token from text file
 try:

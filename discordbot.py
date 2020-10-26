@@ -18,7 +18,7 @@ bot.add_cog(prefix.Utility(bot))
 bot.add_cog(sound.Sound(bot))
 bot.add_cog(utility.Utility(bot))
 
-# When the bot is running, output to console
+# When the bot is running, output to console and set activity
 @bot.event
 async def on_ready():
     print("Logged on as {0.user}!".format(bot))

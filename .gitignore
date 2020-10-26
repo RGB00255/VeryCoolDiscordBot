@@ -1,16 +1,19 @@
-# Sensative info
-token.txt
-data/reddit/config.json
-
 # .vscode config files
 .vscode/
-
-# images
-data/reddit/images
-
-# sound
-data/sounds
 
 # general
 __pycache__/
 data/reddit/__pycache__/
+
+# images
+data/reddit/images
+
+# sensative info
+token.txt
+data/reddit/config.json
+
+# subreddits
+data/reddit/subreddits
+
+# sound
+data/sounds

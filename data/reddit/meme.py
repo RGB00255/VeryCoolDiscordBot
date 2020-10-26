@@ -49,6 +49,8 @@ def LoadSubreddits(id):
     if os.path.isfile(fileLocation):
         return [line.strip() for line in open(fileLocation)]
     else: # The file is going to start out with dankmemes
+        if not os.path.isdir(srLocation): # If subreddits folder doesn't exist
+            os.mkdir(srLocation)
         outFile = open(fileLocation, 'w')
         outFile.write("dankmemes")
         outFile.close()

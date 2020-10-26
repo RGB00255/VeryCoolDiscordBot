@@ -68,7 +68,7 @@ def RemoveSubreddit(subreddit, id):
 # Saves list of subreddits to server's subreddits text file
 def SaveSubreddits(subreddits, id):
     with open(srLocation + id + ".txt", 'w') as outFile:
-        outFile.write('\n'.join(sorted(subreddits)))
+        outFile.write('\n'.join(sorted(subreddits, key=str.casefold)))
 
 # Yoinked this from reddit, u/gavin19, note: thank the kind stranger at some point
 def SubExists(subreddit):

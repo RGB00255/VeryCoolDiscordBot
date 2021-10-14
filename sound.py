@@ -15,9 +15,9 @@ class Sound(commands.Cog):
         if IsSupported(url):
             # Download and convert to mp3, move file
             if DownloadYoutubeMP3(url, fileName):
-                await ctx.channel.send("Cool sound added by {c.message.author.mention}.").format(c=ctx)
+                await ctx.channel.send("Cool sound added by {c.message.author.mention}.".format(c=ctx))
             else:
-                await ctx.channel.send("Epic download fail, {c.message.author.mention} loser.").format(c=ctx)
+                await ctx.channel.send("Epic download fail, {c.message.author.mention} loser.".format(c=ctx))
         else:
             await ctx.channel.send("Link not supported")
             return True

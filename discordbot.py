@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # My first discord bot in python
+# TODO: !addsound <youtube link> (Check if link, dl w/ ytdl, convert -> mp3 w/ ffmpeg)
 __author__ = "Ryan Bergeron"
 
 from discord.ext import commands

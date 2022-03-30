@@ -1,6 +1,6 @@
 # getmeme.py returns the url of a randomly picked post from selected subreddit, thanks stackoverflow for praw!!!
-import json, os, praw, random
-from prawcore import NotFound
+import json, os, asyncpraw, random
+from asyncprawcore import NotFound
 
 cfgLocation = "data/reddit/config.json"
 srLocation = "data/reddit/subreddits/"
@@ -8,7 +8,7 @@ srLocation = "data/reddit/subreddits/"
 # Open and read in super secret api info so I can actually access reddit
 with open(cfgLocation) as file:
     cfg = json.load(file)
-    reddit = praw.Reddit(client_id=cfg["client_id"],
+    reddit = asyncpraw.Reddit(client_id=cfg["client_id"],
                      client_secret=cfg["secret_id"],
                      user_agent=cfg["user_agent"])
 
@@ -31,12 +31,12 @@ def SubAdded(subreddit, id):
     return False
 
 # Gets random url from selected subreddit
-def GetNewMeme(subreddit):
-    memes_submissions = reddit.subreddit(subreddit).hot()
-    post_to_pick = random.randint(1, 50)
-    for _ in range(0, post_to_pick):
-        submission = next(x for x in memes_submissions if x.is_reddit_media_domain and x.domain == "i.redd.it")
-    return submission
+async def GetNewMeme(subreddit):
+    meme_sr = await reddit.subreddit(subreddit)
+    async for sub in meme_sr.hot():
+        if sub.is_reddit_media_domain and sub.domain == "i.redd.it":
+            return sub
+        #submission = next(x for x in sub if x.is_reddit_media_domain and x.domain == "i.redd.it")
 
 # Gets random subreddit from file
 def GetRandomSubreddit(id):

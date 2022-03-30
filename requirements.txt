@@ -1,4 +1,4 @@
 discord.py[voice]
 ffmpeg
-praw
+asyncpraw
 youtube_dl

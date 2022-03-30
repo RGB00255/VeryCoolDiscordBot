@@ -35,11 +35,11 @@ class Fun(commands.Cog):
     async def meme(self, ctx, args = None):
         if args is None: # Check if nothing was inputted
             rdmSR = GetRandomSubreddit(str(ctx.guild.id))
-            meme = GetNewMeme(rdmSR)
+            meme = await GetNewMeme(rdmSR)
             await ctx.channel.send("\"{a}\" \n{b} from r/{c}, very cool!".format(a=meme.title, b=meme.url, c=rdmSR))
         else:
             if SubAdded(args, str(ctx.guild.id)):
-                meme = GetNewMeme(args)
+                meme = await GetNewMeme(args)
                 await ctx.channel.send("\"{a}\" \n{b} from r/{c}, very cool!".format(a=meme.title, b=meme.url, c=args))
             else:
                 await ctx.channel.send("Subreddit is not in the list of subreddits, very uncool")

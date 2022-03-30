@@ -46,7 +46,7 @@ class Sound(commands.Cog):
 
 def DownloadYoutubeMP3(url, fileName):
     # Don't allow characters other than Aa-Zz, 0-9
-    if not fileName.isalnum():
+    if not fileName.isalnum() and fileName not in GetSoundFiles():
         return False
 
     def my_hook(d):

@@ -1,6 +1,8 @@
 # fun.py handles everything related to fun stuff
 # Contains commands: code, coomer, johnfreeman, iq, meme
+from http.client import FORBIDDEN
 import discord, random
+from asyncprawcore.exceptions import Forbidden
 from discord.ext import commands
 from data.reddit.meme import GetNewMeme, GetRandomSubreddit, LoadSubreddits, SubAdded
 
@@ -35,7 +37,9 @@ class Fun(commands.Cog):
     async def meme(self, ctx, args = None):
         if args is None: # Check if nothing was inputted
             rdmSR = GetRandomSubreddit(str(ctx.guild.id))
-            meme = await GetNewMeme(rdmSR)
+            try: meme = await GetNewMeme(rdmSR)
+            except Forbidden: await ctx.channel.send("403 forbidden????? sorry, not cool.".format())
+            except IndexError: await ctx.channel.send("I have decided not to send this one, don't ask why.")
             await ctx.channel.send("\"{a}\" \n{b} from r/{c}, very cool!".format(a=meme.title, b=meme.url, c=rdmSR))
         else:
             if SubAdded(args, str(ctx.guild.id)):

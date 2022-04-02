@@ -1,6 +1,5 @@
 # fun.py handles everything related to fun stuff
 # Contains commands: code, coomer, johnfreeman, iq, meme
-from http.client import FORBIDDEN
 import discord, random
 from asyncprawcore.exceptions import Forbidden
 from discord.ext import commands

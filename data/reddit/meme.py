@@ -37,9 +37,7 @@ async def GetNewMeme(subreddit):
     async for sub in meme_sr.hot():
         if sub.is_reddit_media_domain and sub.domain == "i.redd.it":
             subList.append(sub)
-            #return sub
     return random.choice(subList)
-        #submission = next(x for x in sub if x.is_reddit_media_domain and x.domain == "i.redd.it")
 
 # Gets random subreddit from file
 def GetRandomSubreddit(id):

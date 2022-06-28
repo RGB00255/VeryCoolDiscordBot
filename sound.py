@@ -9,7 +9,7 @@ class Sound(commands.Cog):
         self.bot = bot
 
     # TODO: Add support for server specific sound files and ability to remove them
-    @commands.command(name="addsound", help="Adds a cool sound given a youtube link")
+    @commands.command(name="addsound", help="Adds a cool sound given a youtube link and sound name (!addsound <youtube link> <sound name>) sound name is alphanumeric")
     @commands.has_permissions(administrator=True)
     async def addsound(self, ctx, url, fileName):
         if IsSupported(url):

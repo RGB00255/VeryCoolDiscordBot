@@ -10,6 +10,7 @@ data/reddit/images
 
 # sensative info
 token.txt
+openaiapi.txt
 data/reddit/config.json
 
 # subreddits

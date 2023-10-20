@@ -4,7 +4,7 @@ import discord, json
 from discord.ext import commands
 
 # Commands class for changeprefix
-class Utility(commands.Cog):
+class Prefix(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 

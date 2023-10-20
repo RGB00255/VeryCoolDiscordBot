@@ -3,7 +3,6 @@
 import discord, random
 from asyncprawcore.exceptions import Forbidden
 from discord.ext import commands
-from data.reddit.meme import GetNewMeme, GetRandomSubreddit, LoadSubreddits, SubAdded
 
 # Fun commands
 class Fun(commands.Cog):
@@ -23,26 +22,7 @@ class Fun(commands.Cog):
     async def johnfreeman(self, ctx):
         HLFLCQuotes = [line.strip() for line in open("data/HLFLC.txt")]
         await ctx.channel.send(random.choice(HLFLCQuotes) + " (Very cool)")
-
-    @commands.command(name="listsubreddits", help="Lists subreddits that can be chosen with !meme")
-    async def listsubreddits(self, ctx):
-        await ctx.channel.send("Here's a list of all the very cool subreddits I choose from:\n```{a}```".format(a=", ".join(LoadSubreddits(str(ctx.guild.id)))))
-
+    
     @commands.command(name="iq", help="Determine your iq")
     async def iq(self, ctx):
         await ctx.channel.send("{c.message.author.mention}, your iq is: {i}, very cool!".format(c=ctx, i=str(random.randrange(-1, 229))))
-
-    @commands.command(name="meme", help="Gets a random meme from a subreddit unless specified")
-    async def meme(self, ctx, args = None):
-        if args is None: # Check if nothing was inputted
-            rdmSR = GetRandomSubreddit(str(ctx.guild.id))
-            try: meme = await GetNewMeme(rdmSR)
-            except Forbidden: await ctx.channel.send("403 forbidden????? sorry, not cool.".format())
-            except IndexError: await ctx.channel.send("I have decided not to send this one, don't ask why.")
-            await ctx.channel.send("\"{a}\" \n{b} from r/{c}, very cool!".format(a=meme.title, b=meme.url, c=rdmSR))
-        else:
-            if SubAdded(args, str(ctx.guild.id)):
-                meme = await GetNewMeme(args)
-                await ctx.channel.send("\"{a}\" \n{b} from r/{c}, very cool!".format(a=meme.title, b=meme.url, c=args))
-            else:
-                await ctx.channel.send("Subreddit is not in the list of subreddits, very uncool")

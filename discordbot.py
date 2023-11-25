@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# My first discord bot in python
+# My first discord bot in python, main file
 __author__ = "Ryan Bergeron"
 
 from discord.ext import commands

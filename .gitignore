@@ -4,6 +4,7 @@
 # general
 __pycache__/
 data/reddit/__pycache__/
+.venv/
 
 # images
 data/reddit/images

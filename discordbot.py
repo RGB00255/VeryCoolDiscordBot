@@ -14,11 +14,11 @@ def GetPrefix(bot, message):
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix=GetPrefix, intents=intents)
 async def setup(bot):
-    await bot.add_cog(dnd.DnD(bot))
-    await bot.add_cog(fun.Fun(bot))
-    await bot.add_cog(prefix.Prefix(bot))
-    await bot.add_cog(sound.Sound(bot))
-    await bot.add_cog(utility.Utility(bot))
+    bot.add_cog(dnd.DnD(bot))
+    bot.add_cog(fun.Fun(bot))
+    bot.add_cog(prefix.Prefix(bot))
+    bot.add_cog(sound.Sound(bot))
+    bot.add_cog(utility.Utility(bot))
 
 # When the bot is running, output to console and set activity
 @bot.event
